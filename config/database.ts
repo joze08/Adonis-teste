@@ -8,6 +8,9 @@
 import Env from '@ioc:Adonis/Core/Env'
 import { DatabaseConfig } from '@ioc:Adonis/Lucid/Database'
 
+//const Url = require('url-parse');
+//const DATABASE_URL = new Url(Env.get("DATABASE_URL"));
+
 const databaseConfig: DatabaseConfig = {
   /*
   |--------------------------------------------------------------------------
@@ -68,6 +71,9 @@ const databaseConfig: DatabaseConfig = {
         user: Env.get('PG_USER'),
         password: Env.get('PG_PASSWORD', ''),
         database: Env.get('PG_DB_NAME'),
+        ssl: {
+          rejectUnauthorized: false
+        }
       },
       migrations: {
         naturalSort: true,
